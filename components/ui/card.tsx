@@ -64,6 +64,7 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -74,6 +75,7 @@ const CardFooter = React.forwardRef<
     {...props}
   />
 ))
+/* eslint-disable @typescript-eslint/no-unused-vars */
 CardFooter.displayName = "CardFooter"
 
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
