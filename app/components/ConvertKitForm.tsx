@@ -3,6 +3,15 @@
 import { useEffect } from "react"
 import Script from "next/script"
 
+// Add this type declaration at the top of the file
+declare global {
+  interface Window {
+    formkit: {
+      init(): void;
+    }
+  }
+}
+
 export default function ConvertKitForm() {
   useEffect(() => {
     if (window.formkit) {
