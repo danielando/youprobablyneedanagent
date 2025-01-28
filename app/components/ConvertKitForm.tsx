@@ -34,7 +34,11 @@ export default function ConvertKitForm() {
       >
         <div data-style="clean">
           <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div data-element="fields" data-stacked="false" className="seva-fields formkit-fields flex gap-2">
+          <div 
+            data-element="fields" 
+            data-stacked="false" 
+            className="seva-fields formkit-fields flex flex-col sm:flex-row gap-3 sm:gap-2"
+          >
             <div className="formkit-field flex-grow">
               <input
                 className="formkit-input w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
@@ -47,7 +51,7 @@ export default function ConvertKitForm() {
             </div>
             <button
               data-element="submit"
-              className="formkit-submit formkit-submit bg-accent text-white font-bold py-3 px-6 rounded-md hover:bg-accent/90 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              className="formkit-submit formkit-submit w-full sm:w-auto bg-accent text-white font-bold py-3 px-6 rounded-md hover:bg-accent/90 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
             >
               <div className="formkit-spinner">
                 <div></div>

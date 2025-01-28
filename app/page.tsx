@@ -4,7 +4,7 @@ import { Bot, Cat } from "lucide-react"
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-8 flex justify-center">
             <Bot className="h-16 w-16 text-accent" />
@@ -18,7 +18,7 @@ export default function Home() {
           </div>
           <p className="mt-4 text-sm text-muted-foreground">Be the first to know when we launch. No spam, ever.</p>
           
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-16 pt-8 border-t border-border pb-12 sm:pb-0">
             <div className="flex items-center justify-center mb-4">
               <Cat className="h-8 w-8 text-accent" />
             </div>
