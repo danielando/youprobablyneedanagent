@@ -24,7 +24,7 @@ export default function Home() {
             </div>
             <h2 className="text-2xl font-bold text-primary">Submit Your Agent</h2>
             <p className="mt-3 text-muted-foreground">
-              Have an amazing Copilot agent? We'd love to feature it in our directory.
+              Have an amazing Copilot agent? We&apos;d love to feature it in our directory.
             </p>
             <a 
               href="https://tally.so/r/wvJAB0" 
