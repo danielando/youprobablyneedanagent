@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Agent } from '@/app/types/Agent';
 import { getAgentById } from '@/app/services/agentService';
-import { StarRating } from '@/app/components/StarRating';
 
 export default function AgentDetailsPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -85,16 +84,6 @@ export default function AgentDetailsPage({ params }: { params: { id: string } })
               <Badge variant="outline" className="px-4">
                 {agent?.pricingModel}
               </Badge>
-            </div>
-            <div className="flex flex-col items-center gap-2 mt-4">
-              <StarRating 
-                agentId={agent.id} 
-                initialRating={agent.rating} 
-                readonly={false}
-              />
-              <span className="text-sm text-muted-foreground">
-                {agent.totalRatings} ratings
-              </span>
             </div>
           </div>
 

@@ -10,6 +10,4 @@ export interface Agent {
   keyFeatures: string[];
   pricingModel: 'Free' | 'Freemium' | 'Subscription' | 'Enterprise Pricing' | 'Once Off';
   websiteUrl: string;
-  rating: number;
-  totalRatings: number;
 } 
