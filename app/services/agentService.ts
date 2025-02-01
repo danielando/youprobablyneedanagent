@@ -17,11 +17,7 @@ const mockAgents: Record<string, Agent> = {
       "Integration with popular IDEs"
     ],
     websiteUrl: "https://github.com/features/copilot",
-    pricingModel: "Freemium",
-    votes: 42,
-    hasVoted: false,
-    rating: 4.5,
-    totalRatings: 128,
+    pricingModel: "Freemium"
   },
   "2": {
     id: "2",
@@ -39,11 +35,7 @@ const mockAgents: Record<string, Agent> = {
       "Plagiarism detection"
     ],
     websiteUrl: "https://www.writewise.ai",
-    pricingModel: "Subscription",
-    votes: 28,
-    hasVoted: false,
-    rating: 4.2,
-    totalRatings: 89,
+    pricingModel: "Subscription"
   },
   "3": {
     id: "3",
