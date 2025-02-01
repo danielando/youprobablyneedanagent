@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { StarRating } from "@/app/components/StarRating"
 import { Badge } from "@/components/ui/badge"
 
 // Sample data - you'll replace this with real data later
@@ -35,7 +34,6 @@ const agents = [
     name: "CodeCopilot Pro",
     description: "Advanced coding assistant with real-time suggestions and code review capabilities.",
     category: "Development",
-    rating: 4.8,
     pricingType: PricingType.FREEMIUM,
     featured: true,
   },
@@ -44,7 +42,6 @@ const agents = [
     name: "WriteWise",
     description: "AI-powered writing assistant for content creation and editing.",
     category: "Writing",
-    rating: 4.6,
     pricingType: PricingType.SUBSCRIPTION,
     featured: true,
   },
@@ -53,7 +50,6 @@ const agents = [
     name: "DataSense AI",
     description: "Intelligent data analysis and visualization assistant for business insights.",
     category: "Data Analysis",
-    rating: 4.9,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -61,7 +57,6 @@ const agents = [
     name: "ProductivityPro",
     description: "Your personal productivity coach for task management and time optimization.",
     category: "Productivity",
-    rating: 4.7,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -69,7 +64,6 @@ const agents = [
     name: "ResearchMate",
     description: "Academic research assistant for literature review and citation management.",
     category: "Research",
-    rating: 4.5,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -77,7 +71,6 @@ const agents = [
     name: "CustomerCare AI",
     description: "24/7 customer service assistant with multi-language support and sentiment analysis.",
     category: "Customer Service",
-    rating: 4.8,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -85,7 +78,6 @@ const agents = [
     name: "MarketingGenius",
     description: "AI-powered marketing strategy and content optimization assistant.",
     category: "Marketing",
-    rating: 4.7,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -93,7 +85,6 @@ const agents = [
     name: "BugHunter",
     description: "Automated debugging assistant that helps identify and fix code issues.",
     category: "Development",
-    rating: 4.6,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -101,7 +92,6 @@ const agents = [
     name: "ContentCraft",
     description: "Creative content generation assistant for blogs, social media, and more.",
     category: "Writing",
-    rating: 4.8,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -109,7 +99,6 @@ const agents = [
     name: "AnalyticsPro",
     description: "Advanced analytics assistant for data-driven decision making.",
     category: "Data Analysis",
-    rating: 4.9,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -117,7 +106,6 @@ const agents = [
     name: "TaskMaster",
     description: "Smart project management assistant with automated workflow optimization.",
     category: "Productivity",
-    rating: 4.7,
     pricingType: PricingType.SUBSCRIPTION,
   },
   {
@@ -125,7 +113,6 @@ const agents = [
     name: "ScholarBot",
     description: "Research assistant specialized in academic paper analysis and synthesis.",
     category: "Research",
-    rating: 4.6,
     pricingType: PricingType.SUBSCRIPTION,
   }
 ]
@@ -182,17 +169,6 @@ export default function DirectoryPage() {
                             Featured
                           </Badge>
                         </span>
-                        <div className="flex items-center gap-1 mt-1">
-                          <StarRating 
-                            agentId={agent.id} 
-                            initialRating={agent.rating} 
-                            readonly={true}
-                            size="sm"
-                          />
-                          <span className="text-xs text-muted-foreground">
-                            ({agent.totalRatings})
-                          </span>
-                        </div>
                       </div>
                       <Badge variant="outline">
                         {agent.pricingType}
@@ -271,17 +247,6 @@ export default function DirectoryPage() {
                         {agent.pricingType}
                       </Badge>
                     </CardTitle>
-                    <div className="flex items-center gap-1 mt-1">
-                      <StarRating 
-                        agentId={agent.id} 
-                        initialRating={agent.rating} 
-                        readonly={true}
-                        size="sm"
-                      />
-                      <span className="text-xs text-muted-foreground">
-                        ({agent.totalRatings})
-                      </span>
-                    </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <p className="text-muted-foreground">{agent.description}</p>
