@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Container, Row, Col, ListGroup } from 'react-bootstrap';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { Agent } from '../types/Agent';
 import { getAgentById } from '../services/agentService'; // You'll need to create this
 
-const AgentDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
+  const router = useRouter();
   const [agent, setAgent] = useState<Agent | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,20 +28,20 @@ const AgentDetails: React.FC = () => {
   }, [id]);
 
   const handleBack = () => {
-    navigate('/directory');
+    router.push('/directory');
   };
 
   if (loading) {
     return (
-      <Container className="py-4">
+      <div className="container mx-auto py-4">
         <div>Loading...</div>
-      </Container>
+      </div>
     );
   }
 
   if (error || !agent) {
     return (
-      <Container className="py-4">
+      <div className="container mx-auto py-4">
         <div className="text-danger">{error || 'Agent not found'}</div>
         <button 
           className="btn btn-primary mt-3" 
@@ -51,18 +49,18 @@ const AgentDetails: React.FC = () => {
         >
           Back to Directory
         </button>
-      </Container>
+      </div>
     );
   }
 
   return (
-    <Container className="py-4">
-      <Row>
-        <Col md={8}>
+    <div className="container mx-auto py-4">
+      <div className="row">
+        <div className="col-md-8">
           <h1 className="mb-3">{agent.name}</h1>
           <div className="mb-3">
-            <Badge bg="primary" className="me-2">{agent.category}</Badge>
-            <Badge bg="secondary">{agent.industry}</Badge>
+            <span className="badge bg-primary me-2">{agent.category}</span>
+            <span className="badge bg-secondary">{agent.industry}</span>
           </div>
           <img 
             src={agent.image} 
@@ -78,14 +76,14 @@ const AgentDetails: React.FC = () => {
           <p>{agent.problemSolved}</p>
           
           <h3>Key Features</h3>
-          <ListGroup className="mb-4">
+          <ul className="list-group mb-4">
             {agent.keyFeatures.map((feature, index) => (
-              <ListGroup.Item key={index}>{feature}</ListGroup.Item>
+              <li key={index} className="list-group-item">{feature}</li>
             ))}
-          </ListGroup>
+          </ul>
           
           <h3>Pricing Model</h3>
-          <Badge bg="info" className="fs-6">{agent.pricingModel}</Badge>
+          <span className="badge bg-info fs-6">{agent.pricingModel}</span>
           
           <div className="mt-4">
             <button 
@@ -95,9 +93,9 @@ const AgentDetails: React.FC = () => {
               Back to Directory
             </button>
           </div>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 };
 

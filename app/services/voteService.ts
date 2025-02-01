@@ -1,5 +1,5 @@
 // This would be replaced with actual API calls in production
-let votesStorage: Record<string, Set<string>> = {};
+const votesStorage: Record<string, Set<string>> = {};
 
 export const voteService = {
   vote: async (agentId: string, userId: string): Promise<number> => {
