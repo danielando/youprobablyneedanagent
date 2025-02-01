@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Agent } from '../types/Agent';
-import { getAgentById } from '../services/agentService'; // You'll need to create this
+import Image from 'next/image';
+import { Agent } from '@/app/types/Agent';
+import { getAgentById } from '@/app/services/agentService'; // You'll need to create this
 
 const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
   const router = useRouter();
@@ -62,12 +63,14 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
             <span className="badge bg-primary me-2">{agent.category}</span>
             <span className="badge bg-secondary">{agent.industry}</span>
           </div>
-          <img 
-            src={agent.image} 
-            alt={agent.name} 
-            className="img-fluid mb-4" 
-            style={{ maxHeight: '400px' }}
-          />
+          <div className="relative w-full aspect-square">
+            <Image 
+              src={agent.image} 
+              alt={agent.name}
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
           
           <h3>Primary Use Case</h3>
           <p>{agent.primaryUseCase}</p>
