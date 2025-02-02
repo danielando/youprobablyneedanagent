@@ -17,14 +17,15 @@ const mockAgents: Record<string, Agent> = {
       "Integration with popular IDEs"
     ],
     websiteUrl: "https://github.com/features/copilot",
-    pricingModel: "Freemium"
+    pricingModel: "Freemium",
+    featured: true
   },
   "2": {
     id: "2",
     name: "WriteWise",
     description: "AI-powered writing assistant for content creation and editing.",
     image: "/placeholder.svg",
-    category: "Writing",
+    category: "Development",
     industry: "Content Creation",
     primaryUseCase: "Content Writing and Editing",
     problemSolved: "Improves writing quality and speeds up content creation",
@@ -35,14 +36,15 @@ const mockAgents: Record<string, Agent> = {
       "Plagiarism detection"
     ],
     websiteUrl: "https://www.writewise.ai",
-    pricingModel: "Subscription"
+    pricingModel: "Subscription",
+    featured: true
   },
   "3": {
     id: "3",
     name: "DataSense AI",
     description: "Intelligent data analysis and visualization assistant for business insights.",
     image: "/placeholder.svg",
-    category: "Data Analysis",
+    category: "Development",
     industry: "Business Intelligence",
     primaryUseCase: "Data Analysis and Visualization",
     problemSolved: "Simplifies complex data analysis and visualization tasks",
@@ -53,14 +55,15 @@ const mockAgents: Record<string, Agent> = {
       "Custom reporting"
     ],
     websiteUrl: "https://datasense.ai",
-    pricingModel: "Subscription"
+    pricingModel: "Subscription",
+    featured: true
   },
   "4": {
     id: "4",
     name: "ProductivityPro",
     description: "Your personal productivity coach for task management and time optimization.",
     image: "/placeholder.svg",
-    category: "Productivity",
+    category: "Development",
     industry: "Personal Development",
     primaryUseCase: "Task and Time Management",
     problemSolved: "Optimizes personal and team productivity",
@@ -71,7 +74,8 @@ const mockAgents: Record<string, Agent> = {
       "Team collaboration"
     ],
     websiteUrl: "https://productivitypro.ai",
-    pricingModel: "Subscription"
+    pricingModel: "Subscription",
+    featured: true
   },
   "5": {
     id: "5",
@@ -103,4 +107,12 @@ export const getAgentById = async (id: string): Promise<Agent> => {
   }
   
   return agent;
+};
+
+export const getAllAgents = async (): Promise<Agent[]> => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  // Convert the mockAgents object to an array
+  return Object.values(mockAgents);
 }; 

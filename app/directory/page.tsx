@@ -134,15 +134,42 @@ export default function DirectoryPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Site Header */}
+      <header className="border-b py-8">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex justify-between items-center">
+            {/* Logo with Link */}
+            <Link href="/" className="hover:opacity-80 transition-opacity">
+              <Bot className="h-10 w-10 text-accent" />
+            </Link>
+            
+            {/* Navigation */}
+            <nav className="flex items-center gap-4">
+              <Link href="/">
+                <Badge 
+                  variant="outline" 
+                  className="cursor-pointer hover:bg-accent/10 px-6 py-2"
+                >
+                  Home
+                </Badge>
+              </Link>
+              <Link href="/directory">
+                <Badge 
+                  variant="outline" 
+                  className="cursor-pointer hover:bg-accent/10 px-6 py-2"
+                >
+                  Agent Directory
+                </Badge>
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
+
       <main className="flex-grow py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="mb-8 flex justify-center">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
-                <Bot className="h-16 w-16 text-accent" />
-              </Link>
-            </div>
             <h1 className="text-4xl font-extrabold text-primary sm:text-5xl">
               Copilot Agent Directory
             </h1>
