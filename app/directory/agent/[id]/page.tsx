@@ -16,9 +16,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function AgentPage({ params }: Props) {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <AgentDetails id={params.id} />
-    </div>
-  );
+  return <AgentDetails id={params.id} />;
 } 

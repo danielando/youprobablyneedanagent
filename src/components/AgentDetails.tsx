@@ -2,9 +2,27 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Agent } from '@/app/types/Agent';
-import { getAgentById } from '@/app/services/agentService'; // You'll need to create this
+import { getAgentById } from '@/app/services/agentService';
+import Link from 'next/link';
+import { Bot, Target, Puzzle, ListChecks, CreditCard } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+
+const styles = `
+  .agent-card {
+    padding: 1.5rem;
+  }
+`;
+
+const PlaceholderSVG = () => (
+  <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#f8fafc" />
+    <circle cx="200" cy="200" r="80" stroke="#94a3b8" strokeWidth="2" fill="none" />
+    <path d="M160 120v160m80-160v160M120 160h160m-160 80h160" stroke="#94a3b8" strokeWidth="2" />
+  </svg>
+);
 
 const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
   const router = useRouter();
@@ -13,7 +31,6 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log('Agent ID:', id); // Debug log
     const fetchAgent = async () => {
       try {
         setLoading(true);
@@ -30,75 +47,80 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
     fetchAgent();
   }, [id]);
 
-  const handleBack = () => {
-    router.push('/directory');
-  };
-
-  if (loading) {
-    return (
-      <div className="container mx-auto py-4">
-        <div>Loading...</div>
-      </div>
-    );
-  }
-
-  if (error || !agent) {
-    return (
-      <div className="container mx-auto py-4">
-        <div className="text-danger">{error || 'Agent not found'}</div>
-        <button 
-          className="btn btn-primary mt-3" 
-          onClick={handleBack}
-        >
-          Back to Directory
-        </button>
-      </div>
-    );
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error || !agent) return <div>Error: {error}</div>;
 
   return (
-    <div className="container mx-auto py-4">
-      <div className="row">
-        <div className="col-md-8">
-          <h1 className="mb-3">{agent.name}</h1>
-          <div className="mb-3">
-            <span className="badge bg-primary me-2">{agent.category}</span>
-            <span className="badge bg-secondary">{agent.industry}</span>
-          </div>
-          <div className="relative w-full aspect-square">
-            <Image 
-              src={agent.image} 
-              alt={agent.name}
-              fill
-              className="object-cover rounded-lg"
-            />
-          </div>
-          
-          <h3>Primary Use Case</h3>
-          <p>{agent.primaryUseCase}</p>
-          
-          <h3>Problem Solved</h3>
-          <p>{agent.problemSolved}</p>
-          
-          <h3>Key Features</h3>
-          <ul className="list-group mb-4">
-            {agent.keyFeatures.map((feature, index) => (
-              <li key={index} className="list-group-item">{feature}</li>
-            ))}
-          </ul>
-          
-          <h3>Pricing Model</h3>
-          <span className="badge bg-info fs-6">{agent.pricingModel}</span>
-          
-          <div className="mt-4">
-            <button 
-              className="btn btn-secondary" 
-              onClick={handleBack}
+    <div className="min-h-screen flex flex-col">
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <Card className="flex flex-col border-accent/20 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex justify-between items-start">
+              <div>
+                <span className="flex items-center gap-2">
+                  {agent.name}
+                  {agent.featured && (
+                    <Badge className="bg-accent/10 text-accent">
+                      Featured
+                    </Badge>
+                  )}
+                </span>
+              </div>
+              <Badge variant="outline">
+                {agent.pricingModel}
+              </Badge>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex-grow">
+            <div className="flex justify-between gap-8">
+              {/* Left Column */}
+              <div className="w-[48%]">
+                <div className="bg-accent/5 rounded-lg p-12">
+                  <PlaceholderSVG />
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="w-[48%] space-y-8">
+                <p className="text-muted-foreground">{agent.description}</p>
+                
+                {/* Primary Use Case */}
+                <div>
+                  <h2 className="text-xl font-semibold mb-2">Primary Use Case</h2>
+                  <p className="text-muted-foreground">{agent.primaryUseCase}</p>
+                </div>
+
+                {/* Problem Solved */}
+                <div>
+                  <h2 className="text-xl font-semibold mb-2">Problem Solved</h2>
+                  <p className="text-muted-foreground">{agent.problemSolved}</p>
+                </div>
+
+                {/* Key Features */}
+                <div>
+                  <h2 className="text-xl font-semibold mb-2">Key Features</h2>
+                  <ul className="space-y-2">
+                    {agent.keyFeatures.map((feature, index) => (
+                      <li key={index} className="text-muted-foreground">
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-between items-center">
+            <Badge variant="secondary">{agent.category}</Badge>
+            <Button 
+              size="sm"
+              className="bg-primary text-primary-foreground hover:bg-accent hover:text-white transition-colors"
+              onClick={() => router.push('/directory')}
             >
               Back to Directory
-            </button>
-          </div>
-        </div>
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   );
