@@ -2,7 +2,6 @@
 
 import { useEffect } from "react"
 import Script from "next/script"
-import { Button } from "@/components/ui/button"
 
 // Add this type declaration at the top of the file
 declare global {

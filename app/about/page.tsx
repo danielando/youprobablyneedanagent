@@ -1,5 +1,6 @@
 import { Bot, Linkedin, Youtube, Twitter, Cloud } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function About() {
   return (
@@ -22,9 +23,11 @@ export default function About() {
           <div className="flex flex-col items-center">
             {/* Profile Image */}
             <div className="w-48 h-48 rounded-full overflow-hidden bg-accent/5 mb-6">
-              <img 
+              <Image 
                 src="/daniel-anderson.jpg" 
                 alt="Daniel Anderson"
+                width={192}
+                height={192}
                 className="w-full h-full object-cover"
               />
             </div>

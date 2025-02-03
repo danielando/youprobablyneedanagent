@@ -32,7 +32,7 @@ export default function AboutSite() {
               Why We Exist
             </h2>
             <p className="mb-8">
-              Finding the right Copilot Agent shouldn't require hours of research. Too many directories list every tool available, leaving users with too much choice and not enough clarity. We take a curated, user-driven approach so you can discover, compare, and implement solutions without the guesswork.
+              Finding the right Copilot Agent shouldn&apos;t require hours of research. Too many directories list every tool available, leaving users with too much choice and not enough clarity. We take a curated, user-driven approach so you can discover, compare, and implement solutions without the guesswork.
             </p>
 
             <h2 className="text-2xl font-bold text-primary mt-12 mb-4">
@@ -63,7 +63,7 @@ export default function AboutSite() {
             </ul>
 
             <p className="text-lg mt-8">
-              Whether you're looking to streamline processes, boost productivity, or integrate AI into your daily workflow, You Probably Need an Agent helps you find the right Copilot, at the right time.
+              Whether you&apos;re looking to streamline processes, boost productivity, or integrate AI into your daily workflow, You Probably Need an Agent helps you find the right Copilot, at the right time.
             </p>
           </div>
         </div>
