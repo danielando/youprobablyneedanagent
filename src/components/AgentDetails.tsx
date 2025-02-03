@@ -67,7 +67,7 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
       {/* Site Header */}
       <header className="border-b py-8">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center gap-4 md:gap-0">
             {/* Logo with Link */}
             <Link href="/" className="hover:opacity-80 transition-opacity">
               <Bot className="h-10 w-10 text-accent" />
@@ -109,16 +109,16 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
               </CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
-              <div className="flex justify-between gap-8">
+              <div className="flex flex-col md:flex-row justify-between gap-8">
                 {/* Left Column */}
-                <div className="w-[48%]">
+                <div className="w-full md:w-[48%]">
                   <div className="bg-accent/5 rounded-lg p-12">
                     <PlaceholderSVG />
                   </div>
                 </div>
 
                 {/* Right Column */}
-                <div className="w-[48%]">
+                <div className="w-full md:w-[48%]">
                   {/* Title and Description */}
                   <div className="mb-12">
                     <h1 className="text-3xl font-bold text-primary mb-4">{agent.name}</h1>
@@ -163,15 +163,6 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="flex justify-end items-center">
-              <Button 
-                size="sm"
-                className="bg-primary text-primary-foreground hover:bg-accent hover:text-white transition-colors"
-                onClick={() => router.push('/directory')}
-              >
-                Back to Directory
-              </Button>
-            </CardFooter>
           </Card>
         </div>
       </div>
@@ -183,7 +174,7 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
             <h2 className="text-lg font-medium text-muted-foreground mb-6">
               More {agent.category} Agents
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {featuredAgents.map((featuredAgent) => (
                 <Card 
                   key={featuredAgent.id} 
@@ -223,6 +214,15 @@ const AgentDetails: React.FC<{ id: string }> = ({ id }) => {
           </div>
         </div>
       )}
+
+      {/* Simple footer with just copyright */}
+      <footer className="py-8 bg-secondary mt-auto">
+        <div className="max-w-7xl mx-auto px-4">
+          <p className="text-center text-secondary-foreground">
+            © 2025 You Probably Need an Agent. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

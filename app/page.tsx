@@ -8,7 +8,9 @@ export default function Home() {
       <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 flex justify-center">
-            <Bot className="h-16 w-16 text-accent" />
+            <Link href="/" className="hover:opacity-80 transition-opacity">
+              <Bot className="h-16 w-16 text-accent" />
+            </Link>
           </div>
           <h1 className="text-4xl font-extrabold text-primary sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-none">
             You Probably Need an Agent
@@ -41,22 +43,37 @@ export default function Home() {
         </div>
       </main>
       <footer className="py-8 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center gap-4">
-            <nav className="flex gap-6">
+            <div className="flex items-center gap-6">
               <Link 
-                href="/pricing" 
-                className="text-secondary-foreground hover:text-accent transition-colors"
+                href="/" 
+                className="text-accent hover:text-accent/80 transition-colors"
+                aria-label="Home"
               >
-                Agent Listing Pricing
+                <Bot className="h-5 w-5" />
               </Link>
               <Link 
-                href="/directory" 
+                href="/about" 
                 className="text-secondary-foreground hover:text-accent transition-colors"
               >
-                Agent Directory
+                Who&apos;s Behind This
               </Link>
-            </nav>
+              <Link 
+                href="/about-site" 
+                className="text-secondary-foreground hover:text-accent transition-colors"
+              >
+                About This Site
+              </Link>
+              <a 
+                href="https://tally.so/r/mRbveP"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-secondary-foreground hover:text-accent transition-colors"
+              >
+                Contact
+              </a>
+            </div>
             <p className="text-center text-secondary-foreground">
               © 2025 You Probably Need an Agent. All rights reserved.
             </p>

@@ -300,25 +300,25 @@ export default function DirectoryPage() {
       </main>
 
       <footer className="py-8 bg-secondary mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-4">
-            <nav className="flex gap-6">
-              <Link 
-                href="/pricing" 
-                className="text-secondary-foreground hover:text-accent transition-colors"
-              >
-                Agent Listing Pricing
-              </Link>
-              <Link 
-                href="/directory" 
-                className="text-secondary-foreground hover:text-accent transition-colors"
-              >
-                Agent Directory
-              </Link>
-            </nav>
-            <p className="text-center text-secondary-foreground">
-              © 2025 You Probably Need an Agent. All rights reserved.
-            </p>
+        <div className="max-w-7xl mx-auto px-4">
+          <p className="text-center text-secondary-foreground">
+            © 2025 You Probably Need an Agent. All rights reserved.
+          </p>
+          <div className="mt-4 text-center">
+            <Link 
+              href="/about-site" 
+              className="text-secondary-foreground hover:text-accent transition-colors"
+            >
+              About This Site
+            </Link>
+            <a 
+              href="https://tally.so/r/mRbveP"
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="text-secondary-foreground hover:text-accent transition-colors"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </footer>
